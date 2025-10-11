@@ -3,32 +3,33 @@
 # The program should calculate and display the total rainfall for the year, 
 # the average monthly rainfall, # and the months with the highest and lowest amounts.
 def rainfall_program():
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
     rainfall = []
-
-    for i in range(1,13):
+    
+    for month in months:
         while True:
             try:
-                amount = float(input(f"Enter rainfall for month [i]: "))
+                amount = float(input(f"Enter rainfall for {month}: "))
                 if amount < 0:
-                    raise ValueError("rainfall cant be negative.")
+                    raise ValueError("Rainfall cannot be negative.")
                 rainfall.append(amount)
                 break
             except ValueError as e:
                 print(f"Invalid input: {e}")
+    
+    total = sum(rainfall)
+    average = total / len(rainfall)
+    max_rain = max(rainfall)
+    min_rain = min(rainfall)
+    
+    max_month = months[rainfall.index(max_rain)]
+    min_month = months[rainfall.index(min_rain)]
 
-    total_rainfall = sum(rainfall)
-    average_rainfall = total_rainfall / 12
-    max_rainfall = max(rainfall)
-    min_rainfall = min(rainfall)
-    month_names = {"January", "Febuary", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"}
+    print(f"\nTotal rainfall: {total:.2f}")
+    print(f"Average monthly rainfall: {average:.2f}")
+    print(f"Highest rainfall: {max_rain:.2f} in {max_month}")
+    print(f"Lowest rainfall: {min_rain:.2f} in {min_month}")
 
-    max_month = month_names[rainfall.index(max_rainfall)]
-    min_month = month_names[rainfall.index(min_rainfall)]
-
-    print("\n--- Rainfall Summary ---")
-    print(f"Total Rainfall: {total_rainfall:.2f}")
-    print(f"Average Monthly Rainfall: {average_rainfall:.2f}")
-    print(f"Highest Rainfall: {max_rainfall:.2f} in {max_month}")
-    print(f"Lowest Rainfall: {min_rainfall:.2f} in {min_month}")
 
     
