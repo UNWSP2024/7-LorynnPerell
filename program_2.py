@@ -3,34 +3,23 @@
 # Assume that the list contains numbers.
 # The function shell has been written out on line 30, (def display_larger_than_n_list)
 # and should display all of the numbers in the list that are greater than then number n.
-
 def main():
-    # Declare local variables
-    number = 5
-    number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    # Display the number.
-    print('Number:', number)
+    user_input = input("Enter a list of numbers separated by spaces: ")
+ 
+    n_list = [float(x) for x in user_input.split()]
 
-    # Display the list of numbers.
-    print('List of numbers:')
-    print(f'{number_list}')
-    
-    # Display the list of numbers that are larger
-    # than the number.
-    print(f'List of numbers that are larger than {number}:')
-    
-    # Call the display_larger_than_n_list function,
-    # passing a number and number list as arguments.
-    display_larger_than_n_list(number, number_list)
+    n = float(input("Enter a number n: "))
 
-# The display_larger_than_n_list function accepts two arguments:
-# a list, and a number. The function displays all of the numbers
-# in the list that are greater than the number.
+
+    display_larger_than_n_list(n, n_list)
+
 def display_larger_than_n_list(n, n_list):
-    # Write your code to display all of the numbers in the list that are greater than then number n. below
-    print('In display_larger_than_n_list')
-        
-# Call the main function.
+    for number in n_list:
+        if number > n:
+            print(number)
+
+
+
 if __name__ == '__main__':
     main()
